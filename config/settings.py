@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
+    'profiles',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -154,3 +155,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #Sign In Redirect
 LOGIN_REDIRECT_URL = 'index'
+
+#Additions to Sign Up Form
+ACCOUNT_SIGNUP_FORM_CLASS = 'profiles.forms.ProfileForm'
+
