@@ -27,10 +27,27 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#all-auth
+AUTHENTICATION_BACKENDS = [
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+SITE_ID = 1
 
 # Application definition
 
 INSTALLED_APPS = [
+    #all auth install apps
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -118,8 +135,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = BASE_DIR/ 'staticfiles/'
-# STATICFILES_DIRS = [(BASE_DIR/ 'static')]
+STATIC_ROOT = BASE_DIR/ 'staticfiles/'
+STATICFILES_DIRS = [(BASE_DIR/ 'static')]
 
 #Media Files
 MEDIA__ROOT = BASE_DIR/ 'media/'
@@ -131,3 +148,9 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+#Email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#Sign In Redirect
+LOGIN_REDIRECT_URL = 'index'

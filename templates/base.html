@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,12 +12,15 @@
 
     <link href="https://vjs.zencdn.net/7.8.3/video-js.css" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
     <!--  IE8 (for Video.js versions prior to v7) -->
   	<script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 
     <title>Hello, world!</title>
   </head>
   <body>
+    {% include 'videos/navigation.html' %}
     {% block content %}
     {% endblock content %}
 
@@ -28,5 +32,11 @@
 
     <!-- for video -->
     <script src="https://vjs.zencdn.net/7.8.3/video.js"></script>
+
+    <!-- icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
   </body>
 </html>

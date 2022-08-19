@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 	<div class="container">
 		<div class="row mt-5">
@@ -46,6 +46,10 @@
 
 			</div>
 		</div>
+		{% if object.uploader == user %}
+			<a class="video-icons icon-color" href="{% url 'video-update' object.pk %}"> <ion-icon name="pencil-outline"></ion-icon> </a>
+			<a class="video-icons icon-color" href="{% url 'video-delete' object.pk %}"> <ion-icon name="close-outline"></ion-icon></a>
+		{% endif %}
 	</div>
 
 {% endblock content %}
