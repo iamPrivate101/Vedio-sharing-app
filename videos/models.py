@@ -17,3 +17,26 @@ class Video(models.Model):
         validators=[FileExtensionValidator(allowed_extensions=["png", "jpg", "jpeg"])],
     )  # png, jpg , jpeg are only supported by thumbnails
     date_posted = models.DateTimeField(default=timezone.now)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
+
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = "Categories"
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE)
+    comment = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) :
+        return f'User: {self.user} | Created On: {self.created_on.strftime("%b %d %Y %I:%M %p")}'
