@@ -159,3 +159,6 @@ LOGIN_REDIRECT_URL = 'index'
 #Additions to Sign Up Form
 ACCOUNT_SIGNUP_FORM_CLASS = 'profiles.forms.ProfileForm'
 
+# Configure Django App for Heroku.
+import django_on_heroku
+django_on_heroku.settings(locals())
