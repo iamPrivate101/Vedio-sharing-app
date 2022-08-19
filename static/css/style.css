@@ -80,3 +80,14 @@
     text-decoration: none;
 }
 
+.search-botton{
+    border: 0;
+    background-color: rgba(0,0,0,0);
+    font-size : 1.5rem;
+    transition: 0.3s;
+}
+
+.search-button:hover{
+    color: #555;
+    transition: 0.3s;
+}
